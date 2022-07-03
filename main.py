@@ -1,51 +1,7 @@
 import graphics as gr
 from math import sqrt
-
-
-class MPoint(gr.Point):
-    def __init__(self, x, y):
-        super(MPoint, self).__init__(x, y)
-        self.x = x
-        self.y = y
-
-    def __eq__(self, other): return self.x == other.x and self.y == other.y
-
-    def __ne__(self, other): return self.x != other.x or self.y != other.y
-
-
-class Set:
-    def __init__(self):
-        self.len = 0
-        self.list = []
-
-    def insert(self, el):
-        if not self.__isInside(el):
-            self.list.append(el)
-
-    def remove(self, el):
-        if self.__isInside(el):
-            self.list.remove(el)
-
-    def __isInside(self, el) -> bool:
-        for i in self.list:
-            if i == el:
-                return True
-        return False
-
-    def __iter__(self):
-        self.it = iter(self.list)
-        return self.it
-
-    def __next__(self): return next(self.it)
-
-    def __getitem__(self, item):
-        return self.list[item]
-
-    def __repr__(self):
-        s = ""
-        for i in self.list:
-            s += str(i) + " "
-        return s
+from Set import Set
+from MPoint import MPoint
 
 
 def displayPoint(s, win):
@@ -112,8 +68,8 @@ def getTriangle(s) -> Set:
 if __name__ == '__main__':
     s = inputPoints()
     triangle = getTriangle(s)
-    print("Треугольник максимальной площади" + str(triangle))
-    win = gr.GraphWin("Окно для графики", 400, 400)
+    print("Треугольник максимальной площади: " + str(triangle))
+    win = gr.GraphWin("Точечки", 600, 600)
     displayPoint(s, win)
     displayTriangle(triangle, win)
     win.getMouse()  # ждём нажатия кнопки мыши
