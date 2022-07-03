@@ -23,13 +23,6 @@ def displayTriangle(triangle, win):
 
 
 def inputPoints() -> Set:
-    """s = Set()
-    s.insert(MPoint(10, 10))
-    s.insert(MPoint(40, 10))
-    s.insert(MPoint(40, 40))
-    s.insert(MPoint(30, 30))
-    s.insert(MPoint(15, 20))
-    s.insert(MPoint(30, 30))"""
     f = open("input.txt", "r")
     s = Set()
     n = int(f.readline())
